@@ -5,7 +5,7 @@
  * |  Argh matey!                                             |
  * ------------------------------------------------------------
  *
- * Chrome Dino Game for Portapack Mayhem
+ * Chrome Dino Game for Portapack Mischief
  * Based on the original DinoGame by various contributors
  */
 

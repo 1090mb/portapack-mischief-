@@ -7,14 +7,14 @@
 namespace ui {
 
 // Information: a line starting with a '#' will be yellow coloured
-constexpr std::string_view mayhem_information_list[] = {
-    "#****** Mayhem Community ******",
+constexpr std::string_view mischief_information_list[] = {
+    "#****** Mischief Community ******",
     " ",
     "  https://discord.hackrf.app",
     " ",
     "#**** List of contributors ****",
     " ",
-    "#Mayhem-Firmware:",
+    "#Mischief-Firmware:",
     "jboone,eried,furrtek,",
     "NotherNgineer,gullradriel,",
     "jLynx,kallanreed,Brumi-2021,",
@@ -76,7 +76,7 @@ AboutView::AboutView(NavigationView& nav) {
         button_ok.focus();
     };
 
-    for (auto& authors_line : mayhem_information_list) {
+    for (auto& authors_line : mischief_information_list) {
         // if it's starting with #, it's a title and we have to substract the '#' and paint yellow
         if (authors_line.size() > 0) {
             if (authors_line[0] == '#') {

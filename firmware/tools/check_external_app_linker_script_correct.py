@@ -106,7 +106,7 @@ def main():
         else:
             ld_file_path = input_path
     else:
-        # if no arg, this assume this script is in mayhemrepo/firmware/tools
+        # if no arg, this assume this script is in mischiefrepo/firmware/tools
         ld_file_path = Path("..") / "application" / "external" / "external.ld"
         
     try:

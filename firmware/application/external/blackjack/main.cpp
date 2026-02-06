@@ -1,5 +1,5 @@
 /*
- * Blackjack Game for Portapack Mayhem
+ * Blackjack Game for Portapack Mischief
  * Ported / Enhanced / Graphically made awesome by RocketGod (https://betaskynet.com)
  * Based on BlackJack 83 for TI Calculator by Harper Maddox (was written in Assembly)
  */

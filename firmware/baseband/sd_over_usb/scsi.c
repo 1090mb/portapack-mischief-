@@ -84,7 +84,7 @@ uint8_t handle_inquiry(msd_cbw_t* msd_cbw_data) {
         0x00,
         0x00,
         0x00,
-        "Mayhem",
+        "Mischief",
         "Portapack MSD",
         {'v', '1', '.', '6'}};
 
@@ -102,7 +102,7 @@ uint8_t handle_inquiry_serial_number(msd_cbw_t* msd_cbw_data) {
         .page_code = 0x80,
         .reserved = 0,
         .page_length = 0x08,
-        .serialNumber = "Mayhem"};
+        .serialNumber = "Mischief"};
 
     memcpy(&usb_bulk_buffer[0], &ret, sizeof(scsi_unit_serial_number_inquiry_response_t));
     usb_send_bulk(&usb_bulk_buffer[0], sizeof(scsi_unit_serial_number_inquiry_response_t));

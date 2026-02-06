@@ -33,9 +33,9 @@ set(MAKE_SPI_IMAGE ${PROJECT_SOURCE_DIR}/tools/make_spi_image.py)
 set(MAKE_IMAGE_CHUNK ${PROJECT_SOURCE_DIR}/tools/make_image_chunk.py)
 set(LZ4 lz4)
 
-set(FIRMWARE_NAME portapack-mayhem-firmware)
+set(FIRMWARE_NAME portapack-mischief-firmware)
 set(FIRMWARE_FILENAME ${FIRMWARE_NAME}.bin)
-set(PPFW_FILENAME "portapack-mayhem_OCI.ppfw.tar")
+set(PPFW_FILENAME "portapack-mischief_OCI.ppfw.tar")
 
 # In our current build container cmake need a little help to get the version :)
 if(NOT DEFINED ${CMAKE_CXX_COMPILER_VERSION})
@@ -98,7 +98,7 @@ add_custom_command(
 	COMMAND rm -rf firmware_tar
 	COMMAND mkdir -p firmware_tar/FIRMWARE
 	# Using VERSION_NOHASH to avoid dev builds piling up in the FIRMWARE folder of the sd card of testers in #test-drive
-	COMMAND cp ${FIRMWARE_FILENAME} firmware_tar/FIRMWARE/portapack-mayhem_${VERSION_NOHASH}.bin
+	COMMAND cp ${FIRMWARE_FILENAME} firmware_tar/FIRMWARE/portapack-mischief_${VERSION_NOHASH}.bin
 	COMMAND mkdir -p firmware_tar/APPS
 	COMMAND cp application/*.ppma firmware_tar/APPS
 	COMMAND cp standalone/*/*.ppmp firmware_tar/APPS

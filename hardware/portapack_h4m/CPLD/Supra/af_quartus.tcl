@@ -8,7 +8,7 @@ if { [is_project_open] } {
 
 set is_compatible false
 if { $is_compatible } {
-  cd A:/Users/jLynx/Documents/Code/C/portapack-mayhem/hardware/portapack_h4m/CPLD/AG256SL100
+  cd A:/Users/jLynx/Documents/Code/C/portapack-mischief/hardware/portapack_h4m/CPLD/AG256SL100
   qexec "[file join $::quartus(binpath) quartus_eda] $DESIGN --simulation --tool=modelsim --format=verilog"
 } else {
   set FITTER_EFFORTS    {"STANDARD FIT" "STANDARD FIT" "FAST FIT" "FAST FIT" "FAST FIT"}

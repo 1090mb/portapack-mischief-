@@ -87,7 +87,7 @@ def get_serial_devices():
     
     portapack_device = None
     for port in ports:
-        if port.product == "PortaPack Mayhem":
+        if port.product == "PortaPack Mischief":
             print(f"found your pp:")
             print(f"device: {port.device}")
             print(f"description: {port.description}")
@@ -225,7 +225,7 @@ def run():
         # worker 7: run flash cmd with hackrf_spiflash util
         print("\nflash...")
         process = subprocess.Popen(
-            ["hackrf_spiflash", "-w", "./firmware/portapack-mayhem-firmware.bin"],
+            ["hackrf_spiflash", "-w", "./firmware/portapack-mischief-firmware.bin"],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             universal_newlines=True

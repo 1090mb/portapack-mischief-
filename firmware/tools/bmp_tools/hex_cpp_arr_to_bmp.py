@@ -8,7 +8,7 @@ def hex_cpp_arr_to_bmp(input_file, output_file):
     with open(input_file, 'r') as f:
         content = f.read()
 
-    # in the mayhem code some of them not const
+    # in the mischief code some of them not const
     array_name_const = re.search(r'const unsigned char (\w+)\[\]', content)
     array_name_no_const = re.search(r'unsigned char (\w+)\[]', content)
     if array_name_const or array_name_no_const:

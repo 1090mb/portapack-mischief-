@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #################################################
-# This script aids building mayhem inside docker
+# This script aids building mischief inside docker
 #
 # Basic usage:
 # - Build dev container: ./dockerize.sh build
-# - Build mayhem: ./dockerize.sh
+# - Build mischief: ./dockerize.sh
 #
 # The image will be automatically build if it
 # does not exist, but if the dockerfile changes
@@ -28,7 +28,7 @@
 #   build container using an environment variable.
 #   The default is 'portapack-dev'
 #   Override by setting the following environment
-#   variable: MAYHEM_DEV_DOCKER_IMAGE
+#   variable: MISCHIEF_DEV_DOCKER_IMAGE
 #
 
 #
@@ -56,7 +56,7 @@ set -e # exit immediatelly on any failure
 
 DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-IMAGE="${MAYHEM_DEV_DOCKER_IMAGE:-portapack-dev}"
+IMAGE="${MISCHIEF_DEV_DOCKER_IMAGE:-portapack-dev}"
 
 build_image() {
    DOCKERFILE=${1:-dockerfile-nogit}

@@ -8,7 +8,7 @@ the PortaPack readable format in `bitmap.hpp`.
 ### Convert a folder contains one or more icon.png to one bitmap.hpp
 The `make_bitmap.py` is the traditional helper, well tested. The folder with 
 the icons is given as argument and generates the `./bitmap.hpp`. This file 
-needs to be copied to `mayhem-firmware/firmware/application/`.  
+needs to be copied to `mischief-firmware/firmware/application/`.  
 The icon size needs to be a multiple of 8. The generated icon is black/white.  
 
 ### Convert bitmap array to icon.png

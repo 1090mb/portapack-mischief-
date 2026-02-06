@@ -6,8 +6,8 @@ from datetime import datetime, timedelta, timezone
 
 # Set up your personal access token and the repository details
 token = os.environ.get('GH_TOKEN')
-repo_owner = "portapack-mayhem"
-repo_name = "mayhem-firmware"
+repo_owner = "portapack-mischief"
+repo_name = "mischief-firmware"
 
 
 def print_stable_changelog(previous_sha):
