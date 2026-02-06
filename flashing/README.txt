@@ -14,4 +14,6 @@ Plug HackRF+Portapack, set it in HackRF mode, launch flash_portapack_mischief.ba
 
 ** MORE INFORMATION **
 
-Read https://github.com/portapack-mayhem/mayhem-firmware/wiki/Update-firmware for more detailed information
+For detailed flashing instructions, see:
+https://github.com/portapack-mayhem/mayhem-firmware/wiki/Update-firmware
+(Note: Mischief is compatible with Mayhem documentation and procedures)
