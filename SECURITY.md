@@ -1,1 +1,1 @@
-Please check [Intended-Use-and-Legality](https://github.com/portapack-mayhem/mayhem-firmware/wiki/)
+Please check [Intended-Use-and-Legality](https://github.com/portapack-mischief/mischief-firmware/wiki/)

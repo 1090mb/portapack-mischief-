@@ -38,10 +38,10 @@ jobs:
         run: docker run -e VERSION_STRING=${{ steps.version.outputs.version }} -i -v ${{ github.workspace }}:/havoc portapack-dev
       - name: Create Small SD Card ZIP - No World Map
         run: |
-          mkdir -p sdcard/FIRMWARE && cp build/firmware/portapack-mayhem-firmware.bin sdcard/FIRMWARE/portapack-mayhem_${{ steps.version.outputs.version }}.bin && cp build/firmware/portapack-mayhem_OCI.ppfw.tar sdcard/FIRMWARE/mayhem_${{ steps.version.outputs.version }}_OCI.ppfw.tar && mkdir -p sdcard/APPS && cp build/firmware/application/*.ppma sdcard/APPS && cp build/firmware/standalone/*/*.ppmp sdcard/APPS && cd sdcard && zip -r ../sdcard-no-map.zip . && cd ..
+          mkdir -p sdcard/FIRMWARE && cp build/firmware/portapack-mischief-firmware.bin sdcard/FIRMWARE/portapack-mischief_${{ steps.version.outputs.version }}.bin && cp build/firmware/portapack-mischief_OCI.ppfw.tar sdcard/FIRMWARE/mischief_${{ steps.version.outputs.version }}_OCI.ppfw.tar && mkdir -p sdcard/APPS && cp build/firmware/application/*.ppma sdcard/APPS && cp build/firmware/standalone/*/*.ppmp sdcard/APPS && cd sdcard && zip -r ../sdcard-no-map.zip . && cd ..
       - name: Download world map
         run: |
-          wget https://github.com/portapack-mayhem/mayhem-firmware/releases/download/world_map/world_map.zip
+          wget https://github.com/portapack-mischief/mischief-firmware/releases/download/world_map/world_map.zip
       - name: Unzip world map
         run: |
           unzip world_map.zip -d sdcard/ADSB
@@ -50,10 +50,10 @@ jobs:
           cp build/hackrf/firmware/hackrf_usb/hackrf_usb.dfu flashing/utils/hackrf_one_usb.dfu && cp build/hackrf/firmware/hackrf_usb/hackrf_usb.bin flashing/utils/hackrf_one_usb.bin
       - name: Create Firmware ZIP
         run: |
-          zip -j firmware.zip build/firmware/portapack-mayhem-firmware.bin && cd flashing && zip -r ../firmware.zip *
+          zip -j firmware.zip build/firmware/portapack-mischief-firmware.bin && cd flashing && zip -r ../firmware.zip *
       - name: Create SD Card ZIP
         run: |
-          mkdir -p sdcard/FIRMWARE && cp build/firmware/portapack-mayhem-firmware.bin sdcard/FIRMWARE/portapack-mayhem_${{ steps.version.outputs.version }}.bin && cp build/firmware/portapack-mayhem_OCI.ppfw.tar sdcard/FIRMWARE/mayhem_${{ steps.version.outputs.version }}_OCI.ppfw.tar && mkdir -p sdcard/APPS && cp build/firmware/application/*.ppma sdcard/APPS && cp build/firmware/standalone/*/*.ppmp sdcard/APPS && cd sdcard && zip -r ../sdcard.zip . && cd ..
+          mkdir -p sdcard/FIRMWARE && cp build/firmware/portapack-mischief-firmware.bin sdcard/FIRMWARE/portapack-mischief_${{ steps.version.outputs.version }}.bin && cp build/firmware/portapack-mischief_OCI.ppfw.tar sdcard/FIRMWARE/mischief_${{ steps.version.outputs.version }}_OCI.ppfw.tar && mkdir -p sdcard/APPS && cp build/firmware/application/*.ppma sdcard/APPS && cp build/firmware/standalone/*/*.ppmp sdcard/APPS && cd sdcard && zip -r ../sdcard.zip . && cd ..
       - name: Create changelog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -71,23 +71,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.version.outputs.version }}
-          release_name: Mayhem firmware ${{ steps.version.outputs.version }}
+          release_name: Mischief firmware ${{ steps.version.outputs.version }}
           body: |
             **Stable release - ${{ steps.version.outputs.version }}**
-            This is a fork of the [Havoc](https://github.com/furrtek/portapack-havoc/) firmware, which itself was a fork of the [PortaPack](https://github.com/sharebrained/portapack-hackrf) firmware, an add-on for the [HackRF](http://greatscottgadgets.com/hackrf/). Please check the [readme](https://github.com/portapack-mayhem/mayhem-firmware/blob/master/README.md) for details.
+            This is a fork of the [Havoc](https://github.com/furrtek/portapack-havoc/) firmware, which itself was a fork of the [PortaPack](https://github.com/sharebrained/portapack-hackrf) firmware, an add-on for the [HackRF](http://greatscottgadgets.com/hackrf/). Please check the [readme](https://github.com/portapack-mischief/mischief-firmware/blob/master/README.md) for details.
             ## Release notes
             ###  Revision (${{ steps.version.outputs.version }}):
             ${{ steps.changelog.outputs.content }}
             
-            **Full Changelog**: https://github.com/portapack-mayhem/mayhem-firmware/compare/${{ steps.past_version.outputs.past_version }}...${{ steps.version.outputs.version }}
+            **Full Changelog**: https://github.com/portapack-mischief/mischief-firmware/compare/${{ steps.past_version.outputs.past_version }}...${{ steps.version.outputs.version }}
 
             ## Installation
-            Check the [wiki](https://github.com/portapack-mayhem/mayhem-firmware/wiki/Update-firmware) for details how to upgrade.
+            Check the [wiki](https://github.com/portapack-mischief/mischief-firmware/wiki/Update-firmware) for details how to upgrade.
             __Warning:__ Since release 1.8.0, some applications has been moved to the SD card as we ran out of flash space.
 
             ### MicroSD card files
 
-            For certain functionality, like external apps, the world map, GPS simulator, and others you need to uncompress (using [7-zip](https://www.7-zip.org/download.html)) the files from `mayhem_vX.Y.Z_COPY_TO_SDCARD.zip` to a FAT32 formatted MicroSD card.
+            For certain functionality, like external apps, the world map, GPS simulator, and others you need to uncompress (using [7-zip](https://www.7-zip.org/download.html)) the files from `mischief_vX.Y.Z_COPY_TO_SDCARD.zip` to a FAT32 formatted MicroSD card.
           draft: true
           prerelease: false
       - name: Upload Firmware TAR Asset
@@ -97,8 +97,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/firmware/portapack-mayhem_OCI.ppfw.tar
-          asset_name: mayhem_${{ steps.version.outputs.version }}_OCI.ppfw.tar
+          asset_path: build/firmware/portapack-mischief_OCI.ppfw.tar
+          asset_name: mischief_${{ steps.version.outputs.version }}_OCI.ppfw.tar
           asset_content_type: application/x-tar
       - name: Upload Firmware Asset
         id: upload-firmware-asset 
@@ -108,7 +108,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./firmware.zip
-          asset_name: mayhem_${{ steps.version.outputs.version }}_FIRMWARE.zip
+          asset_name: mischief_${{ steps.version.outputs.version }}_FIRMWARE.zip
           asset_content_type: application/zip
       - name: Upload SD Card Assets
         id: upload-sd-card-asset 
@@ -118,7 +118,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./sdcard.zip
-          asset_name: mayhem_${{ steps.version.outputs.version }}_COPY_TO_SDCARD.zip
+          asset_name: mischief_${{ steps.version.outputs.version }}_COPY_TO_SDCARD.zip
           asset_content_type: application/zip
       - name: Upload SD Card Assets - No Map
         id: upload-sd-card-asset-no-map 
@@ -128,6 +128,6 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./sdcard-no-map.zip
-          asset_name: mayhem_${{ steps.version.outputs.version }}_COPY_TO_SDCARD-no-world-map.zip
+          asset_name: mischief_${{ steps.version.outputs.version }}_COPY_TO_SDCARD-no-world-map.zip
           asset_content_type: application/zip
      

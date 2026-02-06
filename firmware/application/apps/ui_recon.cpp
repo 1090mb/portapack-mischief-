@@ -659,7 +659,7 @@ ReconView::ReconView(NavigationView& nav)
             recon_pause();
         }
         button_add.hidden(scanner_mode);
-        if (scanner_mode)  // only needed when hiding, UI mayhem
+        if (scanner_mode)  // only needed when hiding, UI mischief
             set_dirty();
     };
 

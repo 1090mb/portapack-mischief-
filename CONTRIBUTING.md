@@ -1,1 +1,1 @@
-Please see [How-to-collaborate](https://github.com/portapack-mayhem/mayhem-firmware/wiki/How-to-collaborate)
+Please see [How-to-collaborate](https://github.com/portapack-mischief/mischief-firmware/wiki/How-to-collaborate)

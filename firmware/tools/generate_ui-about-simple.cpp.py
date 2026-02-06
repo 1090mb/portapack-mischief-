@@ -53,7 +53,7 @@ AboutView::AboutView(NavigationView& nav) {
         button_ok.focus();
     };
 
-    for (auto& authors_line : mayhem_information_list) {
+    for (auto& authors_line : mischief_information_list) {
         // if it's starting with #, it's a title and we have to substract the '#' and paint yellow
         if (authors_line.size() > 0) {
             if (authors_line[0] == '#') {
@@ -139,10 +139,10 @@ def get_contributors(url):
 
 def generate_content(projects):
     project_contrib = []
-    project_contrib.append("string_view mayhem_information_list[] = {\n")
-    project_contrib.append("    \"#****** Mayhem Community ******\",\n")
+    project_contrib.append("string_view mischief_information_list[] = {\n")
+    project_contrib.append("    \"#****** Mischief Community ******\",\n")
     project_contrib.append("    \" \",\n")
-    project_contrib.append("    \"  https://discord.mayhem.app\",\n")
+    project_contrib.append("    \"  https://discord.mischief.app\",\n")
     project_contrib.append("    \" \",\n")
     project_contrib.append("    \"#**** List of contributors ****\",\n")
     for project in projects:
@@ -150,8 +150,8 @@ def generate_content(projects):
         project_contrib.append(f"    \"#{project[0]}:\",\n")
 
         url = f"https://api.github.com/repos/{project[1]}/{project[2]}/contributors?per_page={project[3]}"
-        contrib_mayhem = get_contributors(url).split("\n")
-        for line in contrib_mayhem:
+        contrib_mischief = get_contributors(url).split("\n")
+        for line in contrib_mischief:
             project_contrib.append(f"    \"{line}\",\n")
 
     project_contrib.append("    \" \"};\n")
@@ -172,7 +172,7 @@ def pp_create_ui_about_simple_cpp(cpp_file, cppheader, cppcontent, cppfooter):
 
 def pp_change_ui_about_simple_cpp(cpp_file, cppcontent):
     content = []
-    content_pattern = re.compile(r"string_view mayhem_information_list\[\] = {\n(?:\s+(?:.*,\n)+\s+.*};\n)", re.MULTILINE)
+    content_pattern = re.compile(r"string_view mischief_information_list\[\] = {\n(?:\s+(?:.*,\n)+\s+.*};\n)", re.MULTILINE)
 
     # Read original file
     with open(cpp_file, 'r') as file:
@@ -191,7 +191,7 @@ def pp_change_ui_about_simple_cpp(cpp_file, cppcontent):
 
 projects = []
 ## Format: Project title, Github name, Github repo, Amount of contributors
-projects.append(["Mayhem-Firmware","portapack-mayhem","mayhem-firmware","50"])
+projects.append(["Mischief-Firmware","portapack-mischief","mischief-firmware","50"])
 projects.append(["Havoc","furrtek","portapack-havoc","50"])
 projects.append(["PortaPack","sharebrained","portapack-hackrf","50"])
 projects.append(["HackRF","mossmann","hackrf","15"])

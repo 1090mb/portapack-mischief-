@@ -90,7 +90,7 @@ static void cmd_info(BaseSequentialStream* chp, int argc, char* argv[]) {
     chprintf(chp, "Board:            %s\r\n", BOARD_NAME);
 #endif
 #ifdef VERSION_STRING
-    chprintf(chp, "Mayhem Version:   %s\r\n", VERSION_STRING);
+    chprintf(chp, "Mischief Version:   %s\r\n", VERSION_STRING);
 #endif
     chprintf(chp, "HackRF Board Rev: %s\r\n", hackrf_r9 ? "R9" : "R1-R8");
     chprintf(chp, "Reference Source: %s\r\n", portapack::clock_manager.get_source().c_str());

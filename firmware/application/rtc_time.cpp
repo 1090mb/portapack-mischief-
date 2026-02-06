@@ -187,7 +187,7 @@ void set(rtc::RTC& new_datetime) {
 
     // NB: Writing RTC twice takes a second, but ensures that new value can be read back immediately
     // (if not written twice, the old value will be returned if read back in the following 1-2 seconds)
-    // (you will notice with older Mayhem versions that running the Date/Time Settings app again quickly will show the old time)
+    // (you will notice with older Mischief versions that running the Date/Time Settings app again quickly will show the old time)
     LPC_RTC->DOY = doy;
     rtc::RTC adjusted_datetime{year, month, day, hour, new_datetime.minute(), new_datetime.second()};
     rtcSetTime(&RTCD1, &adjusted_datetime);

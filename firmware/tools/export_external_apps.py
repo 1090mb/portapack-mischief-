@@ -85,8 +85,8 @@ def patch_image(path, image_data, search_address, replace_address):
 
 	return external_application_image
 
-project_source_dir = sys.argv[1]   #/portapack-mayhem/firmware/application
-binary_dir = sys.argv[2]           #/portapack-mayhem/build/firmware/application
+project_source_dir = sys.argv[1]   #/portapack-mischief/firmware/application
+binary_dir = sys.argv[2]           #/portapack-mischief/build/firmware/application
 cmake_objcopy = sys.argv[3]
 
 memory_location_header_position = 0
@@ -155,5 +155,5 @@ for external_image_prefix in sys.argv[4:]:
 	checksum = (final_checksum - checksum) & 0xFFFFFFFF
 	external_application_image += checksum.to_bytes(4, 'little')
 
-	# write .ppma (portapack mayhem application)
+	# write .ppma (portapack mischief application)
 	write_image(external_application_image, "{}/{}.ppma".format(binary_dir, external_image_prefix))
