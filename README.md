@@ -46,6 +46,28 @@ This repository expands upon the previous work by many people and aims to consta
 
 The current **stable release** is on the [![GitHub release (latest by date)](https://img.shields.io/github/v/release/portapack-mischief/mischief-firmware?label=Releases&style=social)](https://github.com/portapack-mischief/mischief-firmware/releases/latest) page. Follow the instructions you can find in the release description. The **latest (nightly) release** can be found [here](https://github.com/portapack-mischief/mischief-firmware/releases/).
 
+## How do I update the firmware?
+
+### Easy Web-Based Method (Recommended)
+
+Visit **[hackrf.app](https://hackrf.app/)** to flash your firmware directly from your browser! No command-line tools needed.
+
+- ✅ Works on **Windows, Linux, and Mac** (requires Chrome, Edge, or Opera)
+- ✅ Updates both firmware and SD card apps automatically
+- ✅ User-friendly interface with live screen streaming
+- ⚠️ **Mac users:** See [MAC_WEB_SERIAL_GUIDE.md](flashing/MAC_WEB_SERIAL_GUIDE.md) for important compatibility information
+
+### Traditional Command-Line Methods
+
+For detailed instructions on traditional flashing methods (using `hackrf_spiflash` or batch files), see the [Update Firmware Wiki](https://github.com/portapack-mayhem/mayhem-firmware/wiki/Update-firmware).
+
+**Mac users experiencing issues with web-based flashing** can use Homebrew to install HackRF tools:
+```bash
+brew install hackrf
+hackrf_spiflash -w portapack-mischief-firmware.bin
+```
+See the [Mac compatibility guide](flashing/MAC_WEB_SERIAL_GUIDE.md) for complete troubleshooting steps.
+
 ## How can I collaborate
 You can write [documentation](https://github.com/portapack-mischief/mischief-firmware/wiki), fix bugs and [answer issues](https://github.com/portapack-mischief/mischief-firmware/issues) or add new functionality. Please check the following [guide](https://github.com/portapack-mischief/mischief-firmware/wiki/How-to-collaborate) with details.
 
